@@ -7,11 +7,47 @@
   <title>Weather app!!!!!</title>
   <link rel='stylesheet' type='text/css' href='./style/reset.css'>
   <link rel='stylesheet' type='text/css' href='./style/style.css'>
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
+<header>
+  <h1> Temperature in FharenHeight<h1>
+  <nav>
+      <form>
+    <!-- Here is our search bar where we you would put the zip code and a placeholder
+  is given to let users know what the search bar is for. -->
+        <input class ="zip-code" type="text" name="zip code" placeholder="zip code">
+  <!-- We then have put a button next to the search bar so the users can click after
+  typing in their zipcode. -->
+        <button id="button"></button>
+      </form>
+  </nav>
+</header>
+<!-- Since there will only be one "main-wrapper"  we gave it a div in order
+to make it easier to manage the position of the inside content in css-->
+  <div id = "main-wrapper">
+<!-- The left wrapper containts three spans which will change based on the zipcode
+entered, city, degrees, and sunny and cloud respectively. All three share the same
+class in order to easily manipulate them as a whole, as well as there own ids incase
+we need to add any special styles individually.  -->
+      <div id="left-wrapper">
+  <span class="left" id ="city">City</span>
+  <span class="left" id ="degrees">Temperature</span>
+  <span class="left" id ="sun-cloud">Sunny or Cloudy</span>
+      </div>
+<!-- The right wrapper containts two spans which will also change dpeneding on the zip
+code, and posesses an id "right-wrapper to manipulate its contents as a whole.
+It also posesses two spans with a class of right and there own individual ids. -->
+      <div id="right-wrapper">
+  <span class="right" id = "min">Min</span>
+  <span class="right" id = "max">Max</span>
+      </div>
+
+  </div>
   <!--
     HTML NEEDS
     - input box
+
     - submit button
     - an element with a unique class, id, or data-attribute
       for each of the weather metrics you want to put on the page.
