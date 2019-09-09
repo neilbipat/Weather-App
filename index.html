@@ -16,7 +16,8 @@
       <form>
     <!-- Here is our search bar where we you would put the zip code and a placeholder
   is given to let users know what the search bar is for. -->
-        <input class ="zip-code" type="text" name="zip code" placeholder="zip code">
+        <input class ="zip-code" type="text" name="zipcode" placeholder="zip code"
+          required pattern = "(\d{5}([\-]\d{4})?)" >
   <!-- We then have put a button next to the search bar so the users can click after
   typing in their zipcode. -->
         <button id="button"></button>

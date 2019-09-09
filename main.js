@@ -1,20 +1,45 @@
 // console.log('main.js is connected!');
+// function place() {
 
-const makeCall = function () {
-  fetch ('https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=86de3a54bdf74fd337dd1e2da5314b5e')
-  .then((response) => {
-    return response.json();
-  })
-  .then((response) => {
-    console.log(response);
-    getData(response);
-  })
-  .catch((error) => {
-    console.log(error);
-  })
+
+
+// };
+
+window.onload  = function() {
+const  button = document.querySelector('button');
+button.addEventListener('click', useInput);
+
+event.preventDefault();
+};
+
+function useInput(e){
+  e.preventDefault();
+  let address = document.querySelector('input').value;
+
+
+
+    fetch (`https://api.openweathermap.org/data/2.5/weather?zip=${address}&APPID=86de3a54bdf74fd337dd1e2da5314b5e`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((response) => {
+      console.log(response);
+      getData(response);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
 
 };
-makeCall();
+
+
+
+
+
+
+
+
+
 
 // A function getData is created in order to parse the results form the previous function.
 const getData = function(data){
@@ -27,6 +52,8 @@ const getData = function(data){
     const city = data.name;
     const sun_cloud = data.weather[0].description;
   manipulateDom(tempF, minF, maxF, city, sun_cloud);
+
+
 };
 
 
@@ -56,40 +83,30 @@ const sun_cloudId = document.getElementById('sun-cloud');
     return degreeId.style.color = "blue";
   }
 
+
+
 };
 
 
-function zipcode() {
-  const zip = document.getElementsByClassName('zip-code').value
-  if (zip > 0 && zip < 99999) {
-    const data = makeCall(zip);
-  }
-
-};
-
-zipcode();
-
-function addEventListener() {
-  const cityR = document.getElementById('city');
-  document.getElementById('city').addEventListener('hover', (e) => {
-    cityR.innerText = e.target.dataset.name;
-  })
-}
-
-addEventListener();
 
 
 
 
 
+// Made a function called zipcode which allows for the input bar to put zipcode
+// and it should return the city data.
 
 
+//
+// function addEventListener() {
+//   event.preventDefault();
+//   const cityR = document.getElementById('city');
+//   document.getElementById('city').addEventListener('click', (e) => {
+//     cityR.innerText = e.target.dataset.name;
+//   })
+// }
 
 
-
-
-const button = document.getElementById('button');
-button.addEventListener('click', zipcode);
 
 
 
